@@ -1,0 +1,35 @@
+
+
+$maincolor: #ff0000;
+
+
+.red {
+    color : $maincolor;
+}
+
+.my-alert {
+    background-color: #eeeeee;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+}
+
+.my-alert2 {
+    @extend .my-alert;
+    background-color: #ffe591;
+}
+
+.my-alert p {
+    margin-bottom: 0px;
+}
+
+.wow-enter {
+    opacity: 0;
+}
+
+.wow-enter-active {
+    opacity: 1;
+    transition: all 500ms;
+}
