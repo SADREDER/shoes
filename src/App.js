@@ -1,13 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, lazy, Suspense } from 'react';
 import logo from './logo.svg';
 import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap';
 import ShoesItem from './data.js';
 import './App.css';
-import Detail from './Detail.js';
+//import Detail from './Detail.js';
 import Cart from './Cart.js';
 import axios from 'axios';
-
 import { Link, Route, Switch, useHistory } from 'react-router-dom';
+
+
+let Detail = lazy(()=>{ return import('./Detail.js') });
 
 let stockContext = React.createContext();
 
@@ -69,7 +71,9 @@ function App() {
         </Route>
 
         <Route path='/detail/:id'>
+        <Suspense fallback={<div>Loading...</div>}>
           <Detail shoes={shoes} />
+          </Suspense>
         </Route>
 
         <Route path='/cart'>
